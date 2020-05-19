@@ -57,7 +57,8 @@ def readParseData(file_name):
     '''
     competitors_in_competitions = []
     # TODO Part A, Task 3.4
-
+    with open(file_name, 'r') as file:
+        print(file.readline())
 
     return competitors_in_competitions
 
@@ -111,4 +112,4 @@ if __name__ == "__main__":
     file_name = 'input.txt'
 
     partA(file_name)
-    partB(file_name)
+    #partB(file_name)
