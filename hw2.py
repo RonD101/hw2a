@@ -109,25 +109,37 @@ def calcCompetitionsResults(competitors_in_competitions):
             sports_name.append(str_sport)
             templist = [str_sport]
             sport_dict = [elem for elem in competitors_in_competitions if elem['competition name'] == str_sport]
-            #templist.append(sport_dict[0]['competitor country'])
-            counter = 1
-            for tmp_sport_loop in sport_dict:
-                id = tmp_sport_loop['competitor id']
-                counter2 = 0
-                for tmp_sport_loop2 in sport_dict:
-                    if tmp_sport_loop2['competitor id'] == id:
-                        counter2 += 1
-                if counter2 > 1:
-                    continue
-                if sport_dict[0][str_sport] == 'untimed':
-                    templist[counter] = sport_dict[-1]['competitor country']
-
-            #for temp_dict_sport in competitors_in_competitions:
-
-
-    #for temp_dict_index in range(competitors_in_competitions):
-    #    if competitors_in_competitions[temp_dict_index]['competition name'] == competitors_in_competitions[temp_dict_index+1]['competition name']:
-    #        start += 1
+            ids = []
+            for index in sport_dict:
+                ids.append(index['competitor id'])
+            for index in sport_dict:
+                if ids.count(index['competitor id']) > 1:
+                    sport_dict.remove(index)
+            if len(sport_dict) == 0:
+                continue
+            if sport_dict[0]['competition type'] == 'untimed':
+                templist.append(sport_dict[-1]['competitor country'])
+                if len(sport_dict) > 1:
+                    templist.append(sport_dict[-2]['competitor country'])
+                    if len(sport_dict) > 2:
+                        templist.append(sport_dict[-3]['competitor country'])
+                    else:
+                        templist.append('undef_country')
+                else:
+                    templist.append('undef_country')
+                    templist.append('undef_country')
+            else:
+                templist.append(sport_dict[0]['competitor country'])
+                if len(sport_dict) > 1:
+                    templist.append(sport_dict[1]['competitor country'])
+                    if len(sport_dict) > 2:
+                        templist.append(sport_dict[2]['competitor country'])
+                    else:
+                        templist.append('undef_country')
+                else:
+                    templist.append('undef_country')
+                    templist.append('undef_country')
+            competitions_champs.append(templist.copy())
     return competitions_champs
 
 
