@@ -3,11 +3,30 @@ competitor 2 USA
 competitor 3 China
 competition swimming 1 timed 100
 competition swimming 2 timed 101
-competition swimming 3 timed 96
+competition swimming 1 timed 96
+competition swimming 3 timed 102
+competition high_jump 2 untimed 101
+competition high_jump 1 untimed 96
+competition swimming 3 timed 90
+competitor 5 KerenCity
+competitor 8 Konoha
+competitor 39 Raftel
 competition high_jump 1 untimed 100
-competition high_jump 1 untimed 150
-competition high_jump 2 untimed 102
 competition high_jump 3 untimed 90
 competition road_bike 1 timed 100
 competition road_bike 3 timed 200
 competition road_bike 2 timed 300
+competition fapping 5 timed 23
+competition fapping 2 timed 101
+competition fapping 2 timed 96
+competition fapping 5 timed 102
+competition high_jump 2 untimed 108
+competition high_jump 5 untimed 960
+competition fapping 39 timed 964
+competitor 32 Raftel
+competition UnoCatsCrash 32 knockout 1
+competition UnoCatsCrash 39 knockout 2
+competition UnoCatsCrash 2 knockout 3
+competition UnoCatsCrash 1 knockout 4
+competition UnoCatsCrash 3 knockout 5
+competition UnoCatsCrash 2 knockout 6

@@ -110,11 +110,14 @@ def calcCompetitionsResults(competitors_in_competitions):
             templist = [str_sport]
             sport_dict = [elem for elem in competitors_in_competitions if elem['competition name'] == str_sport]
             ids = []
+            dic_to_remove = []
             for index in sport_dict:
                 ids.append(index['competitor id'])
             for index in sport_dict:
                 if ids.count(index['competitor id']) > 1:
-                    sport_dict.remove(index)
+                    dic_to_remove.append(index)
+            for ele in dic_to_remove:
+                sport_dict.remove(ele)
             if len(sport_dict) == 0:
                 continue
             if sport_dict[0]['competition type'] == 'untimed':
@@ -163,6 +166,15 @@ def partA(file_name='input.txt', allow_prints=True):
 def partB(file_name='input.txt'):
     competitions_results = partA(file_name, allow_prints=False)
     # TODO Part B
+    import Olympics
+    olympic = Olympics.OlympicsCreate()
+    if olympic is None:
+        Olympics.OlympicsDestroy(olympic)
+        return
+    for competitions_result in competitions_results:
+        Olympics.OlympicsUpdateCompetitionResults(olympic, str(competitions_result[1]), str(competitions_result[2]),str(competitions_result[3]))
+    Olympics.OlympicsWinningCountry(olympic)
+    Olympics.OlympicsDestroy(olympic)
 
 
 if __name__ == "__main__":
